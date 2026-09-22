@@ -1,0 +1,10 @@
+[{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "com.gymbro.app.debug",
+    "sha256_cert_fingerprints": [
+      "90:AD:1A:4F:A3:C8:FF:87:7D:C4:01:32:74:3A:47:A5:70:B9:52:63:B0:A4:FE:A6:AE:3B:50:6D:EB:13:52:24"
+    ]
+  }
+}]
