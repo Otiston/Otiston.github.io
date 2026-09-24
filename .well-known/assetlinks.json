@@ -7,4 +7,14 @@
       "90:AD:1A:4F:A3:C8:FF:87:7D:C4:01:32:74:3A:47:A5:70:B9:52:63:B0:A4:FE:A6:AE:3B:50:6D:EB:13:52:24"
     ]
   }
+},
+{
+  "relation": ["delegate_permission/common.handle_all_urls"],
+  "target": {
+    "namespace": "android_app",
+    "package_name": "io.github.otiston.gymbro",
+    "sha256_cert_fingerprints": [
+      "A9:85:6F:EB:93:CF:EB:C3:08:4E:21:33:0D:DC:0E:F7:78:E8:29:39:E7:3B:6F:2A:AF:78:7F:A7:A1:9E:12:AE"
+    ]
+  }
 }]
