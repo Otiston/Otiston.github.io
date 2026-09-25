@@ -1,142 +1,15 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GymBro</title>
-<style>
-  :root { color-scheme: dark; }
-  body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #0b0d10;
-    color: #eef0f2;
-    font-family: -apple-system, "Segoe UI", Roboto, sans-serif;
-  }
-  main {
-    max-width: 420px;
-    width: 100%;
-    padding: 32px 24px;
-    box-sizing: border-box;
-    text-align: center;
-  }
-  h1 { font-size: 1.4rem; margin: 0 0 4px; }
-  p.subtitle { color: #a7adb4; margin: 0 0 24px; }
-  .card {
-    background: #171a1f;
-    border-radius: 16px;
-    padding: 20px;
-    margin-bottom: 16px;
-    text-align: left;
-  }
-  .card h2 { font-size: 1.1rem; margin: 0 0 8px; }
-  .card p { color: #a7adb4; margin: 0; }
-  a.button, button.button {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 14px;
-    margin-top: 16px;
-    border: none;
-    border-radius: 12px;
-    background: #35c46b;
-    color: #06170c;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    cursor: pointer;
-  }
-  .muted { color: #6b7178; font-size: 0.85rem; margin-top: 20px; }
-</style>
-</head>
-<body>
-<main id="app">
-  <h1>GymBro</h1>
-  <p class="subtitle">Chargement…</p>
-</main>
-
 <script>
-const PROJECT_ID = "gymbro-676fb";
-const APK_URL = "https://github.com/Otiston/Otiston.github.io/releases/download/latest/GymBro.apk";
-
-const app = document.getElementById("app");
-const isAndroid = /Android/i.test(navigator.userAgent);
-
-function renderDownload() {
-  if (isAndroid) {
-    app.innerHTML = `
-      <h1>GymBro</h1>
-      <p class="subtitle">Coach vocal pour tes séances de musculation.</p>
-      <a class="button" href="${APK_URL}">Télécharger pour Android</a>
-      <p class="muted">L'installation demande d'autoriser les sources inconnues dans les réglages de ton téléphone.</p>
-    `;
-  } else {
-    app.innerHTML = `
-      <h1>GymBro</h1>
-      <p class="subtitle">Coach vocal pour tes séances de musculation.</p>
-      <div class="card">
-        <h2>Disponible sur Android</h2>
-        <p>GymBro n'est pour l'instant disponible que sur Android. Ouvre ce lien depuis un téléphone Android pour l'installer.</p>
-      </div>
-    `;
-  }
-}
-
-function renderProgram(program) {
-  const workoutCount = program.workouts.length;
-  const exerciseCount = program.workouts.reduce((n, w) => n + w.exercises.length, 0);
-  const workoutsHtml = program.workouts.map(w => `
-    <div class="card">
-      <h2>${escapeHtml(w.name)}</h2>
-      <p>${w.exercises.length} exercice${w.exercises.length > 1 ? "s" : ""}</p>
-    </div>
-  `).join("");
-
-  app.innerHTML = `
-    <h1>${escapeHtml(program.name)}</h1>
-    <p class="subtitle">${workoutCount} séance${workoutCount > 1 ? "s" : ""} · ${exerciseCount} exercice${exerciseCount > 1 ? "s" : ""}</p>
-    ${workoutsHtml}
-    ${isAndroid
-      ? `<a class="button" href="${location.href}">Ouvrir dans GymBro</a>
-         <p class="muted">Si rien ne se passe, installe d'abord GymBro : <a href="${APK_URL}" style="color:#35c46b;">télécharger l'app</a>.</p>`
-      : `<div class="card"><h2>Pour importer ce programme</h2><p>GymBro n'est disponible que sur Android pour l'instant.</p></div>`
-    }
-  `;
-}
-
-function escapeHtml(text) {
-  const div = document.createElement("div");
-  div.textContent = text;
-  return div.innerHTML;
-}
-
-async function main() {
-  const shareId = new URLSearchParams(location.search).get("d");
-  if (!shareId) {
-    renderDownload();
-    return;
-  }
-
-  try {
-    const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/shared_programs/${encodeURIComponent(shareId)}`;
-    const res = await fetch(url);
-    if (!res.ok) throw new Error("not found");
-    const doc = await res.json();
-    const raw = doc.fields && doc.fields.data && doc.fields.data.stringValue;
-    if (!raw) throw new Error("empty");
-    renderProgram(JSON.parse(raw));
-  } catch (e) {
-    app.innerHTML = `
-      <h1>GymBro</h1>
-      <div class="card"><h2>Programme introuvable</h2><p>Ce lien a peut-être expiré.</p></div>
-    `;
-  }
-}
-
-main();
+  // Les liens de partage de GymBro ont déménagé sur getgymbro.web.app (Firebase Hosting).
+  // Un ancien lien, https://otiston.github.io/?d=<identifiant>, mène au même programme là-bas.
+  var d = new URLSearchParams(location.search).get("d");
+  location.replace("https://getgymbro.web.app/" + (d ? "p/" + encodeURIComponent(d) : ""));
 </script>
-</body>
+<meta http-equiv="refresh" content="0; url=https://getgymbro.web.app/">
+</head>
+<body></body>
 </html>
