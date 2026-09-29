@@ -38,13 +38,13 @@
 
 <section class="hero">
 <h1>Politique de confidentialité d'Exercio</h1>
-<p class="date">Dernière mise à jour : 27 septembre 2026</p>
+<p class="date">Dernière mise à jour : 29 septembre 2026</p>
 
 <p>
   Exercio (anciennement GymBro) est une application de suivi d'entraînement. Elle est conçue pour fonctionner sans
   compte et sans collecte : <strong>vos programmes, vos séances et votre historique restent sur
-  votre téléphone</strong>. Cette page décrit les seuls cas où une donnée quitte l'appareil, et
-  ce qui se passe alors.
+  votre téléphone</strong>, sauf quand vous choisissez vous-même d'en partager une partie. Cette
+  page décrit les seuls cas où une donnée quitte l'appareil, et ce qui se passe alors.
 </p>
 </section>
 
@@ -56,10 +56,11 @@
   les séances effectuées, leurs dates et les charges soulevées.
 </p>
 <p>
-  Ces données ne sont transmises nulle part. Elles sont supprimées avec l'application quand vous
-  la désinstallez. La fonction de sauvegarde produit un fichier que <em>vous</em> décidez
-  d'enregistrer ou d'envoyer où bon vous semble ; l'application ne l'envoie d'elle-même à aucun
-  service.
+  Ces données ne sont transmises nulle part, hormis dans les deux cas décrits plus bas, que vous
+  déclenchez vous-même. Elles sont supprimées avec l'application quand vous la désinstallez. Si la
+  sauvegarde Android est activée sur votre téléphone, le système peut les inclure dans la
+  sauvegarde de votre compte Google, pour les retrouver sur un nouvel appareil ; Exercio ne les
+  envoie à aucun autre service.
 </p>
 </section>
 
@@ -83,6 +84,30 @@
   technique, rattaché à l'installation, qui ne porte ni nom, ni adresse e-mail, ni numéro de
   téléphone. Aucun compte ne vous est demandé.
 </p>
+</section>
+
+<section class="card">
+<h2>Le suivi envoyé à un coach</h2>
+<p>
+  Quand — et seulement quand — vous touchez, dans un programme, le bouton qui envoie votre suivi
+  à votre coach, l'historique de ce programme est déposé sur Google Firebase Firestore pour que
+  votre coach puisse le consulter ou l'importer : la définition du programme et, pour chaque
+  séance faite, sa date, ce qui a été fait de chaque exercice et ses réglages ce jour-là (séries,
+  répétitions, charges, durées, distances), avec l'unité de poids choisie.
+</p>
+<p>
+  S'y ajoutent un identifiant tiré au sort à l'installation, qui permet à votre coach de relier
+  vos envois successifs, et l'identité anonyme Firebase qui a déposé le suivi, seule autorisée à
+  l'effacer. Aucun nom, aucune adresse e-mail, aucun numéro de téléphone n'est envoyé.
+</p>
+<div class="note">
+  <p>
+    Un suivi est <strong>lisible par toute personne qui possède le lien, pendant 72 heures</strong>.
+    Il ne peut être ni listé ni retrouvé sans le lien. Passé ce délai, il n'est plus lisible, et
+    l'application l'efface de Firestore lors de votre envoi suivant ou de la prochaine ouverture
+    de l'application.
+  </p>
+</div>
 </section>
 
 <section class="card">
@@ -120,7 +145,8 @@
 <h2>Prestataire technique</h2>
 <p>
   Le seul service tiers utilisé est <strong>Google Firebase</strong> (Firestore et
-  authentification anonyme), et uniquement pour le partage de programmes décrit plus haut. Les
+  authentification anonyme), et uniquement pour le partage de programmes et l'envoi du suivi
+  décrits plus haut. Les
   pratiques de Google sont décrites dans la
   <a href="https://firebase.google.com/support/privacy" rel="noopener">politique de
   confidentialité de Firebase</a>.
@@ -133,7 +159,8 @@
   Les données locales vivent aussi longtemps que l'application est installée, et disparaissent
   avec elle. Un programme déposé pour un partage par lien reste accessible tant que le lien
   existe ; pour en demander la suppression, écrivez à l'adresse ci-dessous en indiquant le lien
-  concerné.
+  concerné. Un suivi envoyé à un coach n'est plus lisible au bout de 72 heures, puis il est effacé
+  par l'application, comme décrit plus haut.
 </p>
 </section>
 
