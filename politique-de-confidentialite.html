@@ -38,7 +38,7 @@
 
 <section class="hero">
 <h1>Politique de confidentialité d'Exercio</h1>
-<p class="date">Dernière mise à jour : 29 septembre 2026</p>
+<p class="date">Dernière mise à jour : 30 septembre 2026</p>
 
 <p>
   Exercio (anciennement GymBro) est une application de suivi d'entraînement. Elle est conçue pour fonctionner sans
@@ -56,7 +56,7 @@
   les séances effectuées, leurs dates et les charges soulevées.
 </p>
 <p>
-  Ces données ne sont transmises nulle part, hormis dans les deux cas décrits plus bas, que vous
+  Ces données ne sont transmises nulle part, hormis dans les cas décrits plus bas, que vous
   déclenchez vous-même. Elles sont supprimées avec l'application quand vous la désinstallez. Si la
   sauvegarde Android est activée sur votre téléphone, le système peut les inclure dans la
   sauvegarde de votre compte Google, pour les retrouver sur un nouvel appareil ; Exercio ne les
@@ -111,6 +111,49 @@
 </section>
 
 <section class="card">
+<h2>Les programmes partagés avec tout le monde</h2>
+<p>
+  L'écran « Explorer » réunit, sur un globe, les programmes que les utilisateurs d'Exercio
+  publient pour tous : vous pouvez les consulter, les aimer, les importer ou les signaler, et
+  publier les vôtres.
+</p>
+<p>
+  Quand — et seulement quand — vous publiez un programme, sont déposés sur Google Firebase
+  Firestore : sa définition (le nom du programme, de ses séances et de ses exercices, avec leurs
+  réglages), le niveau et les objectifs que vous choisissez, sa description si vous en écrivez
+  une, le pseudo que vous choisissez — ou rien, si vous restez anonyme —, sa langue, sa date de
+  publication, et le pays où se trouve votre téléphone. Ce pays est déduit du réseau mobile, de la
+  carte SIM ou de la région réglée sur le téléphone, jamais de votre position.
+</p>
+<div class="note">
+  <p>
+    Un programme publié est <strong>visible de tous les utilisateurs d'Exercio</strong>, sur la
+    carte de son pays. Vous pouvez le retirer à tout moment depuis sa fiche. Votre historique
+    d'entraînement n'en fait jamais partie.
+  </p>
+</div>
+<p>
+  Pour être proposé dans toutes les langues de l'application, le texte du programme (ses noms et
+  sa description) est traduit au moment de la publication par <strong>Gemini</strong>, le service
+  d'intelligence artificielle de Google, par l'intermédiaire de Firebase. Rien d'autre ne lui est
+  envoyé. Dans l'offre gratuite utilisée, Google peut se servir de ces textes pour améliorer ses
+  services : ce sont des textes que vous rendez publics en les publiant.
+</p>
+<p>
+  Pour qu'un « j'aime », une importation ou un signalement ne compte qu'une fois par téléphone,
+  l'application enregistre, pour chaque programme concerné, une empreinte calculée à partir d'un
+  identifiant de l'appareil et de celui du programme, avec l'identité anonyme Firebase décrite plus
+  haut. L'empreinte ne permet ni de retrouver l'identifiant de l'appareil, ni de relier vos votes
+  d'un programme à l'autre, et ces votes ne peuvent pas être parcourus par les autres utilisateurs.
+</p>
+<p>
+  Enfin, Firebase App Check vérifie, par le service Play Integrity de Google, que les demandes
+  viennent bien de l'application Exercio installée depuis Google Play, afin de protéger ces
+  services contre les abus.
+</p>
+</section>
+
+<section class="card">
 <h2>La commande vocale</h2>
 <p>
   Exercio peut écouter un mot-clé (« repos », « go ») pour piloter les chronos sans toucher
@@ -144,12 +187,13 @@
 <section class="card">
 <h2>Prestataire technique</h2>
 <p>
-  Le seul service tiers utilisé est <strong>Google Firebase</strong> (Firestore et
-  authentification anonyme), et uniquement pour le partage de programmes et l'envoi du suivi
-  décrits plus haut. Les
-  pratiques de Google sont décrites dans la
+  Le seul prestataire est <strong>Google</strong>, par <strong>Firebase</strong> (Firestore,
+  authentification anonyme, App Check et, pour la traduction, Gemini), et uniquement pour le
+  partage de programmes, l'envoi du suivi et les programmes partagés avec tout le monde décrits
+  plus haut. Les pratiques de Google sont décrites dans la
   <a href="https://firebase.google.com/support/privacy" rel="noopener">politique de
-  confidentialité de Firebase</a>.
+  confidentialité de Firebase</a> et dans les
+  <a href="https://ai.google.dev/gemini-api/terms" rel="noopener">conditions de l'API Gemini</a>.
 </p>
 </section>
 
@@ -160,7 +204,10 @@
   avec elle. Un programme déposé pour un partage par lien reste accessible tant que le lien
   existe ; pour en demander la suppression, écrivez à l'adresse ci-dessous en indiquant le lien
   concerné. Un suivi envoyé à un coach n'est plus lisible au bout de 72 heures, puis il est effacé
-  par l'application, comme décrit plus haut.
+  par l'application, comme décrit plus haut. Un programme publié pour tout le monde reste en ligne
+  jusqu'à ce que vous le retiriez depuis sa fiche ; si vous ne le pouvez plus — après une
+  réinstallation de l'application, par exemple —, écrivez à l'adresse ci-dessous en indiquant son
+  nom et son pays.
 </p>
 </section>
 
