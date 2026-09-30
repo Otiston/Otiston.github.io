@@ -135,9 +135,17 @@
 <p>
   Pour être proposé dans toutes les langues de l'application, le texte du programme (ses noms et
   sa description) est traduit au moment de la publication par <strong>Gemini</strong>, le service
-  d'intelligence artificielle de Google, par l'intermédiaire de Firebase. Rien d'autre ne lui est
+  d'intelligence artificielle de Google, par l'intermédiaire de Firebase. Le même appel vérifie
+  que ces textes, et votre pseudo quand vous le choisissez, ne contiennent ni insultes, ni
+  obscénités, ni propos haineux : un texte refusé n'est pas publié. Rien d'autre ne lui est
   envoyé. Dans l'offre gratuite utilisée, Google peut se servir de ces textes pour améliorer ses
   services : ce sont des textes que vous rendez publics en les publiant.
+</p>
+<p>
+  Le pseudo qui signe vos programmes vous est réservé : il est enregistré sur Firestore avec
+  l'identité anonyme Firebase de votre téléphone, pour que personne d'autre ne puisse le prendre.
+  Vous pouvez en changer à tout moment dans l'application ; l'ancien est alors effacé, et vos
+  programmes publiés prennent le nouveau.
 </p>
 <p>
   Pour qu'un « j'aime », une importation ou un signalement ne compte qu'une fois par téléphone,
